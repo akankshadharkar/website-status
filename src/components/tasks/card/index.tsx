@@ -1,6 +1,16 @@
 import { FC } from 'react';
 import classNames from '@/components/tasks/card/card.module.scss';
 import { task } from '@/components/constants/types';
+import Accordion from '@/components/Accordion';
+
+function renderBlockerTaskList(dependsOntasks: string[]) {
+  return dependsOntasks.map((item) => (
+    <>
+      <b>Task ID: </b>
+      {item}
+    </>
+  ));
+}
 
 type Props = {
   content: task,
@@ -20,6 +30,7 @@ const Card: FC<Props> = ({ content }) => {
     startedOn,
     ownerId,
     status,
+    dependsOn,
   } = content;
 
   const ownerProfilePic = `${process.env.NEXT_PUBLIC_GITHUB_IMAGE_URL}${ownerId}/img.png`;
@@ -37,6 +48,9 @@ const Card: FC<Props> = ({ content }) => {
           />
           <strong>{ownerId}</strong>
         </div>
+        <Accordion open={false} mainHeading={false} title="Depends on">
+          {renderBlockerTaskList(dependsOn)}
+        </Accordion>
         {informationElement('Status', status)}
       </div>
     </div>

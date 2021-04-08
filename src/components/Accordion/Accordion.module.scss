@@ -1,7 +1,6 @@
 .container {
   border-radius: 10px;
   margin-bottom: 1rem;
-  min-width: 800px;
 
   @media (max-width: 767px) {
     min-width: 300px;
@@ -10,25 +9,33 @@
 }
 
 .title {
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.title--big {
   display: flex;
   justify-content: space-between;
   padding: 2rem;
   text-align: left;
   width: auto;
   font-size: 3.5rem;
-  font-weight: bold;
   color: #041484;
-  cursor: pointer;
-  border: none;
   text-transform: capitalize;
-
-  &:focus {
-    outline: none;
-  }
 
   @media (max-width: 767px) {
     font-size: 2.5rem;
   }
+}
+
+.title--small {
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
 
 .content {

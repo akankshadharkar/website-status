@@ -49,7 +49,7 @@ const Index: FC = () => {
                 {
                   Object.keys(filteredTask).length > 0
                     ? Object.keys(filteredTask).map((key) => (
-                      <Accordion open title={key} key={key}>
+                      <Accordion open mainHeading title={key} key={key}>
                         {renderCardList(filteredTask[key])}
                       </Accordion>
                     )) : 'No Tasks Found'
